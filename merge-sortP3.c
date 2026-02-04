@@ -28,7 +28,7 @@ void merge(int arr[], int left, int mid, int right) {
     }
 }
 void mergeSort(int arr[], int left, int right) {
-    callCount++; // count recursive calls
+    callCount++; 
     if (left < right) {
         int mid = left + (right - left) / 2;
         mergeSort(arr, left, mid);
