@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string.h>
+
+int max(int a, int b){
+    if(a > b)
+        return a;
+    else
+        return b;
+}
+
+int lcs(char s1[], char s2[], int m, int n){
+    if(m == 0 || n == 0)
+        return 0;
+
+    if(s1[m-1] == s2[n-1])
+        return 1 + lcs(s1, s2, m-1, n-1);
+    else
+        return max(lcs(s1, s2, m, n-1), lcs(s1, s2, m-1, n));
+}
+
+int main(){
+    char s1[] = "VED";
+    char s2[] = "VEDANT";
+
+    int m = strlen(s1);
+    int n = strlen(s2);
+
+    printf("%d", lcs(s1, s2, m, n));
+
+    return 0;
+}
